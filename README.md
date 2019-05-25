@@ -20,7 +20,7 @@ All examples use [HTTPie](https://httpie.org/)
 ```http POST :8080/employees id=6 name=Logan salary=600 bossId=4```
 
 ### List all employees
-```http :8080/employees``
+```http :8080/employees```
 
 ### List direct employees of a boss
 ```http :8080/employees/1/directs```
