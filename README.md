@@ -6,7 +6,9 @@
 ### Application
 ```mvn spring-boot:run```
 
-## Request examples with HTTPie
+## Request examples
+All examples use [HTTPie](https://httpie.org/)
+
 ### Insert a CIO
 ```http POST :8080/employees id=1 name=John salary=10000```
 
@@ -34,5 +36,9 @@
 
 ### Total cost of employees by boss
 ```http :8080/employees/1/all/cost```
+
+## TODO
+1. Cache example
+2. Buffer example
 
 
