@@ -14,9 +14,13 @@ All examples use [HTTPie](https://httpie.org/)
 
 ### Insert a employees
 ```http POST :8080/employees id=2 name=Alex salary=1000 bossId=1```
+
 ```http POST :8080/employees id=3 name=Mary salary=2000 bossId=1```
+
 ```http POST :8080/employees id=4 name=Juliet salary=2500 bossId=1```
+
 ```http POST :8080/employees id=5 name=Mark salary=500 bossId=4```
+
 ```http POST :8080/employees id=6 name=Logan salary=600 bossId=4```
 
 ### List all employees
