@@ -18,19 +18,4 @@ public class Application {
     SpringApplication.run(Application.class, args);
   }
 
-  @RequiredArgsConstructor
-  @RestController
-  @RequestMapping("/employers")
-  class Controller {
-    private final EmployerRepository repository;
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Mono<EmployerContract> create(@RequestBody Mono<CreateEmployerContract> employer) {
-      return employer
-          .map(contract -> new EmployerDocument(contract.getName(), contract.getSalary()))
-          .flatMap(repository::save)
-          .map(doc -> new EmployerContract(doc.getId(), doc.getName(), doc.getSalary()));
-    }
-  }
 }

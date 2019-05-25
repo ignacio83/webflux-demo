@@ -7,8 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @RequiredArgsConstructor
 @Data
 @Document
-public class EmployerDocument {
-  private String id;
+public class Employee {
+  private final Integer id;
   private final String name;
-  private final int salary;
+  private final Integer salary;
+  private final Integer bossId;
 }
