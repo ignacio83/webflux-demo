@@ -1,5 +1,6 @@
-package com.demo.webflux;
+package com.demo.webflux.controller.contract;
 
+import com.demo.webflux.domain.Employee;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 

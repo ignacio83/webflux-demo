@@ -41,8 +41,8 @@ All examples use [HTTPie](https://httpie.org/)
 ### Total cost of employees by boss
 ```http :8080/employees/1/all/cost```
 
-## TODO
-1. Cache example
-2. Buffer example
+### Statistics
+```http :8080/employees/statistics```
 
-
+### Export
+```http POST :8080/employees/export```

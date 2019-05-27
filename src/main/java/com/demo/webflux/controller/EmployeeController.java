@@ -1,5 +1,10 @@
-package com.demo.webflux;
+package com.demo.webflux.controller;
 
+import com.demo.webflux.controller.contract.CreateEmployeeContract;
+import com.demo.webflux.controller.contract.EmployeeContract;
+import com.demo.webflux.controller.contract.ExportContract;
+import com.demo.webflux.controller.contract.StatisticsContract;
+import com.demo.webflux.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +30,7 @@ class EmployeeController {
   public Mono<EmployeeContract> create(@RequestBody @Valid Mono<CreateEmployeeContract> employee) {
     return employee
         .map(CreateEmployeeContract::toDomain)
-        .flatMap(service::save)
+        .publish(service::save)
         .map(EmployeeContract::new);
   }
 
@@ -57,5 +62,15 @@ class EmployeeController {
   @GetMapping("/{id}/all/cost")
   public Mono<Integer> listAllByIdx(@PathVariable("id") Integer id) {
     return service.costByBoss(id);
+  }
+
+  @GetMapping("/statistics")
+  public Mono<StatisticsContract> statistics() {
+    return service.statistics().map(tuple -> new StatisticsContract(tuple.getT1(), tuple.getT2()));
+  }
+
+  @PostMapping("/export")
+  public Flux<ExportContract> export() {
+    return service.export().map(ExportContract::new);
   }
 }

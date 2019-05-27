@@ -1,4 +1,4 @@
-package com.demo.webflux;
+package com.demo.webflux.domain;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
