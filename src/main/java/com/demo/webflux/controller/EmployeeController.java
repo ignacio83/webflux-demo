@@ -27,7 +27,7 @@ class EmployeeController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public Mono<EmployeeContract> create(@RequestBody @Valid Mono<CreateEmployeeContract> employee) {
+  public Mono<EmployeeContract> create(@RequestBody @Valid CreateEmployeeContract employee) {
     // TODO Gravar um funcionário (id, nome, salário e chefe).
     return Mono.empty();
   }
