@@ -28,31 +28,31 @@ class EmployeeController {
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public Mono<EmployeeContract> create(@RequestBody @Valid Mono<CreateEmployeeContract> employee) {
-    // TODO
+    // TODO Gravar um funcionário (id, nome, salário e chefe).
     return Mono.empty();
   }
 
   @GetMapping
   public Flux<EmployeeContract> list() {
-    // TODO
+    // TODO Listar todos os funcionários.
     return Flux.empty();
   }
 
   @GetMapping("/{id}/all")
   public Flux<EmployeeContract> findAllByBoss(@PathVariable("id") Integer id) {
-    // TODO
+    // TODO Listar a árvore de funcionários a partir de um chefe.
     return Flux.empty();
   }
 
   @GetMapping("/{id}/all/cost")
   public Mono<Integer> costByBoss(@PathVariable("id") Integer id) {
-    // TODO
+    // TODO Calcular o valor total dos salários dos funcionários de um chefe
     return Mono.empty();
   }
 
   @PostMapping("/export")
   public Flux<ExportContract> export() {
-    // TODO
+    // TODO Exportar os funcionários para arquivos CSV, máximo de 2 funcionários por arquivo.
     return Flux.empty();
   }
 
