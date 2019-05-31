@@ -35,8 +35,8 @@ public class EmployeeService {
     }
   }
 
-  public Mono<Employee> save(Mono<Employee> employee) {
-    return employee
+  public Mono<Employee> save(Employee employee) {
+    return Mono.just(employee)
         .flatMap(repository::save)
         .doOnSuccess(
             savedEmployee ->

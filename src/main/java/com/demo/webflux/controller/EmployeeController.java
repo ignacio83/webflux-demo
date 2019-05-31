@@ -30,7 +30,7 @@ class EmployeeController {
   public Mono<EmployeeContract> create(@RequestBody @Valid CreateEmployeeContract employee) {
     return Mono.just(employee)
         .map(CreateEmployeeContract::toDomain)
-        .publish(service::save)
+        .flatMap(service::save)
         .map(EmployeeContract::new);
   }
 
