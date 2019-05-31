@@ -27,8 +27,8 @@ class EmployeeController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public Mono<EmployeeContract> create(@RequestBody @Valid Mono<CreateEmployeeContract> employee) {
-    return employee
+  public Mono<EmployeeContract> create(@RequestBody @Valid CreateEmployeeContract employee) {
+    return Mono.just(employee)
         .map(CreateEmployeeContract::toDomain)
         .publish(service::save)
         .map(EmployeeContract::new);
